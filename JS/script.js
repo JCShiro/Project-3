@@ -1,0 +1,1 @@
+console.log("This text means the JS is linked")

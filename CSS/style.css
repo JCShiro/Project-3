@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 90%;
+  max-width: auto;
+  margin: 2em auto;
+  background-color: #7dd0d2;
+}
+#container{
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+
