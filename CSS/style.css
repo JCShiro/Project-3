@@ -2,18 +2,57 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 body {
   width: 90%;
   max-width: auto;
   margin: 2em auto;
-  background-color: #7dd0d2;
+  background-color: black;
+  color: yellow;
 }
 #container{
     display: flex;
-    gap: 100px;
+    gap: 20px;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 20px;
+    /* height: 300px; */
 }
-
-
+#images_container{
+  position: relative;
+  height: 250px;
+}
+#container2{
+  display: flex;
+  gap: 100px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* padding-top: 100px; */
+}
+#planets{
+  color:black;
+}
+.infoBox{
+  background-color: #2C3539;
+  width: 800px;
+  height: 300px;
+  text-align: center;
+}
+#planet_img{
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  z-index: 1;
+}
+#earth_img{
+  width: 250px;
+  height: 250px;
+  position: absolute;
+}
+#planetimage{
+  position: relative;
+}
