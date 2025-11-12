@@ -56,3 +56,8 @@ body {
 #planetimage{
   position: relative;
 }
+#biome_img{
+  width: 560px;
+  height: 180px;
+  object-fit: cover;
+}

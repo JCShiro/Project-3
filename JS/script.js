@@ -61,7 +61,7 @@ async function fetchData(ID) {
       throw new Error("response status", response.status);
     }
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     //we now have data
     processData(json, ID);
     // populateUI(json);
@@ -115,11 +115,41 @@ function factionSelector(data) {
 }
 function BiomeImages(data){
     console.log(data.biome.slug)
-    console.log(planetImages)
-    if (data.biome.slug == planetImg.biomeName){
-        planetImages.src = planetImg.image
-        console.log(planetImages)
-    }else{
+    // console.log(planetImages)
+    if (data.biome.slug == "moon"){
+        planetImages.src = "Images/Biomes/Moon.png"
+        // console.log(planetImages)
+    }
+    else if(data.biome.slug == "crimsonmoor"){
+      planetImages.src = "Images/Biomes/CrimsonMoor.png"
+    }
+    else if(data.biome.slug == "icemoss"){
+      planetImages.src = "Images/Biomes/IceMoss.png"
+    }
+    else if(data.biome.slug == "jungle"){
+      planetImages.src = "Images/Biomes/Jungle.png"
+    }
+    else if(data.biome.slug == "canyon"){
+      planetImages.src = "Images/Biomes/Sandy.png"
+    }
+    else if(data.biome.slug == "swamp"){
+      planetImages.src = "Images/Biomes/Swamp.png"
+    }
+    else if(data.biome.slug == "winter"){
+      planetImages.src = "Images/Biomes/Winter.png"
+    }
+    else if(data.biome.slug == "mesa" || "desert"){
+      planetImages.src = "Images/Biomes/Mesa.png"
+    }
+    else if(data.biome.slug == "toxic"){
+      planetImages.src = "Images/Biomes/Toxic.png"
+    }
+    else if(data.biome.slug == "desolate"){
+      planetImages.src = "Images/Biomes/Sandy.png"
+    }
+    else{
+      planetImages.src = "Images/Biomes/TextSuperDestroyerLibertyRefined.png"
         console.log("error");
     }
+    console.log(planetImages.src)
 }
