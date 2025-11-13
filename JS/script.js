@@ -37,6 +37,10 @@ const planetImg = [
     biomeName: "crimsonmoor",
     image: "Images/Biomes/CrimsonMoor.png",
   },
+  {
+    biomeName: "undergrowth",
+    image: "Images/Biomes/Jungle.png"
+  }
 ];
 //References
 let dataIndex = -1;
@@ -49,7 +53,9 @@ const terrainText = document.getElementById("terrain_text");
 const planetImages = document.getElementById("biome_img");
 //helldivers 2 planet api
 const apiUrl = "https://helldiverstrainingmanual.com/api/v1/war/campaign";
-console.log(apiUrl);
+// console.log(apiUrl);
+// LOCAL DATA
+// const apiUrl = "http://127.0.0.1:5500/offlineData.json"
 //FUNCTIONS
 async function fetchData(ID) {
   try {
@@ -75,7 +81,11 @@ function populateUI(data) {
   factionText.innerHTML = "Current owner: " + data.faction;
   libText.innerHTML = "Liberated: " + Math.floor(data.percentage) + "%";
   activeText.innerHTML = "Divers active: " + data.players;
-  terrainText.innerHTML = "Terrain: " + data.biome.slug;
+  try{
+    terrainText.innerHTML = "Terrain: " + data.biome.slug;
+  }catch{
+    terrainText.innerHTML = "Planet Inactive"
+  }
   //   console.log(data.biome.slug);
   factionSelector(data);
   //   console.log(data.faction);
@@ -100,6 +110,7 @@ function processData(json, ID) {
   }
   if (dataIndex == -1) {
     console.log("Planet not Found");
+    defaultUi();
   }
 }
 function factionSelector(data) {
@@ -116,30 +127,36 @@ function factionSelector(data) {
 function BiomeImages(data) {
   console.log(data.biome.slug);
   // console.log(planetImages)
-  if (data.biome.slug == "moon") {
-    planetImages.src = "Images/Biomes/Moon.png";
-    // console.log(planetImages)
-  } else if (data.biome.slug == "crimsonmoor") {
-    planetImages.src = "Images/Biomes/CrimsonMoor.png";
-  } else if (data.biome.slug == "icemoss") {
-    planetImages.src = "Images/Biomes/IceMoss.png";
-  } else if (data.biome.slug == "jungle") {
-    planetImages.src = "Images/Biomes/Jungle.png";
-  } else if (data.biome.slug == "canyon") {
-    planetImages.src = "Images/Biomes/Sandy.png";
-  } else if (data.biome.slug == "swamp") {
-    planetImages.src = "Images/Biomes/Swamp.png";
-  } else if (data.biome.slug == "winter") {
-    planetImages.src = "Images/Biomes/Winter.png";
-  } else if (data.biome.slug == "mesa" || "desert") {
-    planetImages.src = "Images/Biomes/Mesa.png";
-  } else if (data.biome.slug == "toxic") {
-    planetImages.src = "Images/Biomes/Toxic.png";
-  } else if (data.biome.slug == "desolate") {
-    planetImages.src = "Images/Biomes/Sandy.png";
-  } else {
-    planetImages.src = "Images/Biomes/TextSuperDestroyerLibertyRefined.png";
-    console.log("error");
+  // if (data.biome.slug == "moon") {
+  //   planetImages.src = "Images/Biomes/Moon.png";
+  //   // console.log(planetImages)
+  // } else if (data.biome.slug == "crimsonmoor") {
+  //   planetImages.src = "Images/Biomes/CrimsonMoor.png";
+  // } else if (data.biome.slug == "icemoss") {
+  //   planetImages.src = "Images/Biomes/IceMoss.png";
+  // } else if (data.biome.slug == "jungle") {
+  //   planetImages.src = "Images/Biomes/Jungle.png";
+  // } else if (data.biome.slug == "canyon") {
+  //   planetImages.src = "Images/Biomes/Sandy.png";
+  // } else if (data.biome.slug == "swamp") {
+  //   planetImages.src = "Images/Biomes/Swamp.png";
+  // } else if (data.biome.slug == "winter") {
+  //   planetImages.src = "Images/Biomes/Winter.png";
+  // } else if (data.biome.slug == "mesa" || "desert") {
+  //   planetImages.src = "Images/Biomes/Mesa.png";
+  // } else if (data.biome.slug == "toxic") {
+  //   planetImages.src = "Images/Biomes/Toxic.png";
+  // } else if (data.biome.slug == "desolate") {
+  //   planetImages.src = "Images/Biomes/Sandy.png";
+  // } else {
+  //   planetImages.src = "Images/Biomes/TextSuperDestroyerLibertyRefined.png";
+  //   console.log("error");
+  // }
+  // console.log(planetImages.src);
+  for(i=0;i<planetImg.length;i++){
+    if(data.biome.slug == planetImg[i].biomeName){
+      planetImages.src = planetImg[i].image
+      break
+    }
   }
-  console.log(planetImages.src);
 }
