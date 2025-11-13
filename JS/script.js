@@ -1,42 +1,42 @@
 console.log("This text means the JS is linked");
 //ARRAY OF PLANET IMAGES
 const planetImg = [
-    {
-        biomeName: "toxic",
-        image: "Images/Biomes/Toxic.png"
-    },
-    {
-        biomeName: "winter",
-        image: "Images/Biomes/Winter.png"
-    },
-    {
-        biomeName: "swamp",
-        image:"Images/Biomes/Swamp.png"
-    },
-    {
-        biomeName: "canyon",
-        image:"Images/Biomes/Sandy.png"
-    },
-    {
-        biomeName: "moon",
-        image:"Images/Biomes/Moon.png"
-    },
-    {
-        biomeName: "mesa",
-        image:"Images/Biomes/Mesa.png"
-    },
-    {
-        biomeName: "jungle",
-        image:"Images/Biomes/Jungle.png"
-    },
-    {
-        biomeName: "icemoss",
-        image:"Images/Biomes/IceMoss.png"
-    },
-    {
-        biomeName: "crimsonmoor",
-        image:"Images/Biomes/CrimsonMoor.png"
-    }
+  {
+    biomeName: "toxic",
+    image: "Images/Biomes/Toxic.png",
+  },
+  {
+    biomeName: "winter",
+    image: "Images/Biomes/Winter.png",
+  },
+  {
+    biomeName: "swamp",
+    image: "Images/Biomes/Swamp.png",
+  },
+  {
+    biomeName: "canyon",
+    image: "Images/Biomes/Sandy.png",
+  },
+  {
+    biomeName: "moon",
+    image: "Images/Biomes/Moon.png",
+  },
+  {
+    biomeName: "mesa",
+    image: "Images/Biomes/Mesa.png",
+  },
+  {
+    biomeName: "jungle",
+    image: "Images/Biomes/Jungle.png",
+  },
+  {
+    biomeName: "icemoss",
+    image: "Images/Biomes/IceMoss.png",
+  },
+  {
+    biomeName: "crimsonmoor",
+    image: "Images/Biomes/CrimsonMoor.png",
+  },
 ];
 //References
 let dataIndex = -1;
@@ -46,7 +46,7 @@ const factionText = document.getElementById("faction_text");
 const libText = document.getElementById("lib_text");
 const activeText = document.getElementById("active_text");
 const terrainText = document.getElementById("terrain_text");
-const planetImages = document.getElementById("biome_img")
+const planetImages = document.getElementById("biome_img");
 //helldivers 2 planet api
 const apiUrl = "https://helldiverstrainingmanual.com/api/v1/war/campaign";
 console.log(apiUrl);
@@ -76,11 +76,11 @@ function populateUI(data) {
   libText.innerHTML = "Liberated: " + Math.floor(data.percentage) + "%";
   activeText.innerHTML = "Divers active: " + data.players;
   terrainText.innerHTML = "Terrain: " + data.biome.slug;
-//   console.log(data.biome.slug);
-factionSelector(data);
-//   console.log(data.faction);
-//   console.log(data.planetIndex); //Console for testing
-  BiomeImages(data,planetImg);
+  //   console.log(data.biome.slug);
+  factionSelector(data);
+  //   console.log(data.faction);
+  //   console.log(data.planetIndex); //Console for testing
+  BiomeImages(data, planetImg);
 }
 locations.onchange = () => {
   //   console.log("onchange") //Testing log
@@ -113,43 +113,33 @@ function factionSelector(data) {
     CurrentFactionImg.src = "Images/Factions/Super_Earth_Icon.webp";
   }
 }
-function BiomeImages(data){
-    console.log(data.biome.slug)
+function BiomeImages(data) {
+  console.log(data.biome.slug);
+  // console.log(planetImages)
+  if (data.biome.slug == "moon") {
+    planetImages.src = "Images/Biomes/Moon.png";
     // console.log(planetImages)
-    if (data.biome.slug == "moon"){
-        planetImages.src = "Images/Biomes/Moon.png"
-        // console.log(planetImages)
-    }
-    else if(data.biome.slug == "crimsonmoor"){
-      planetImages.src = "Images/Biomes/CrimsonMoor.png"
-    }
-    else if(data.biome.slug == "icemoss"){
-      planetImages.src = "Images/Biomes/IceMoss.png"
-    }
-    else if(data.biome.slug == "jungle"){
-      planetImages.src = "Images/Biomes/Jungle.png"
-    }
-    else if(data.biome.slug == "canyon"){
-      planetImages.src = "Images/Biomes/Sandy.png"
-    }
-    else if(data.biome.slug == "swamp"){
-      planetImages.src = "Images/Biomes/Swamp.png"
-    }
-    else if(data.biome.slug == "winter"){
-      planetImages.src = "Images/Biomes/Winter.png"
-    }
-    else if(data.biome.slug == "mesa" || "desert"){
-      planetImages.src = "Images/Biomes/Mesa.png"
-    }
-    else if(data.biome.slug == "toxic"){
-      planetImages.src = "Images/Biomes/Toxic.png"
-    }
-    else if(data.biome.slug == "desolate"){
-      planetImages.src = "Images/Biomes/Sandy.png"
-    }
-    else{
-      planetImages.src = "Images/Biomes/TextSuperDestroyerLibertyRefined.png"
-        console.log("error");
-    }
-    console.log(planetImages.src)
+  } else if (data.biome.slug == "crimsonmoor") {
+    planetImages.src = "Images/Biomes/CrimsonMoor.png";
+  } else if (data.biome.slug == "icemoss") {
+    planetImages.src = "Images/Biomes/IceMoss.png";
+  } else if (data.biome.slug == "jungle") {
+    planetImages.src = "Images/Biomes/Jungle.png";
+  } else if (data.biome.slug == "canyon") {
+    planetImages.src = "Images/Biomes/Sandy.png";
+  } else if (data.biome.slug == "swamp") {
+    planetImages.src = "Images/Biomes/Swamp.png";
+  } else if (data.biome.slug == "winter") {
+    planetImages.src = "Images/Biomes/Winter.png";
+  } else if (data.biome.slug == "mesa" || "desert") {
+    planetImages.src = "Images/Biomes/Mesa.png";
+  } else if (data.biome.slug == "toxic") {
+    planetImages.src = "Images/Biomes/Toxic.png";
+  } else if (data.biome.slug == "desolate") {
+    planetImages.src = "Images/Biomes/Sandy.png";
+  } else {
+    planetImages.src = "Images/Biomes/TextSuperDestroyerLibertyRefined.png";
+    console.log("error");
+  }
+  console.log(planetImages.src);
 }
