@@ -60,10 +60,10 @@ const terrainText = document.getElementById("terrain_text");
 // get a reference for the terrain image
 const planetImages = document.getElementById("biome_img");
 //helldivers 2 planet api
-const apiUrl = "https://helldiverstrainingmanual.com/api/v1/war/campaign";
+// const apiUrl = "https://helldiverstrainingmanual.com/api/v1/war/campaign";
 // console.log(apiUrl);
 // LOCAL DATA
-// const apiUrl = "http://127.0.0.1:5500/offlineData.json"
+const apiUrl = "http://127.0.0.1:5500/offlineData.json"
 //FUNCTIONS
 locations.onchange = () => {
   //   console.log("onchange") //Testing log
